@@ -1,12 +1,13 @@
-class PersonsController < ApplicationController
-  skip_verify_authenticity_token
-
+class PeopleController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def index
-    @persons = Person.all
+    @people = Person.all
+    render json: @people
   end
 
   def show
     @person = Person.find(params[:id])
+    render json: @person
   end
 
   def newß
@@ -33,7 +34,16 @@ class PersonsController < ApplicationController
 
   def destroy
     @person = Person.find(params[:id])
-    @person.destroy
-    render json: 'Person was successfully destroyed.'
+
+    if @person.destroy
+      render json: 'Person was successfully destroyed.'
+    else
+      render json: @person.errors, status: :not_found
+    end
   end
+
+  private
+    def person_params
+      params.require(:person).permit(:name, :email, :phone, :birthdate)
+    end
 end

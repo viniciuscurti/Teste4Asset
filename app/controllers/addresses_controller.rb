@@ -1,6 +1,5 @@
 class AddressesController < ApplicationController
-  skip_verify_authenticity_token
-  
+  skip_before_action :verify_authenticity_token
   def index
     @addresses = Address.all
   end
@@ -39,6 +38,6 @@ class AddressesController < ApplicationController
   
   private
   def address_params
-    params.require(:address).permit(:street, :number, :city, :state, :country, :person_id)
+    params.require(:address).permit(:street, :city, :state, :postal_code, :country, :person_id)
   end
 end
