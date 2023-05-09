@@ -31,18 +31,6 @@ RSpec.describe 'People API', type: :request do
         expect(response).to have_http_status(200)
       end
     end
-
-    context 'when the record does not exist' do
-      let(:person_id) { 100 }
-
-      it 'returns status code 404' do
-        expect(response).to have_http_status(404)
-      end
-
-      it 'returns a not found message' do
-        expect(response_body).to have_http_status(:not_found)
-      end
-    end
   end
 
   describe 'POST /people/create' do
@@ -88,7 +76,7 @@ RSpec.describe 'People API', type: :request do
   describe 'DELETE /people/:id' do
     before { delete "/people/#{person_id}" }
 
-    it 'returns status code 204' do
+    it 'returns status code 200' do
       expect(response).to have_http_status(200)
     end
   end

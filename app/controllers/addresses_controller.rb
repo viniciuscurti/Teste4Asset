@@ -2,10 +2,12 @@ class AddressesController < ApplicationController
   skip_before_action :verify_authenticity_token
   def index
     @addresses = Address.all
+    render json: @addresses
   end
 
   def show
     @address = Address.find(params[:id])
+    render json: @address
   end
 
   def new

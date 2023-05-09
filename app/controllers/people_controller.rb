@@ -24,7 +24,7 @@ class PeopleController < ApplicationController
   end
 
   def update
-    @person = Person.find(params[:id])
+    @person = Person.find_by(id: params[:id])
     if @person.update(person_params)
       render json: @person
     else
@@ -33,7 +33,7 @@ class PeopleController < ApplicationController
   end
 
   def destroy
-    @person = Person.find(params[:id])
+    @person = Person.find_by(id: params[:id])
 
     if @person.destroy
       render json: 'Person was successfully destroyed.'
