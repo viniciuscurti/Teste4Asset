@@ -10,12 +10,12 @@ class PeopleController < ApplicationController
     render json: @person
   end
 
-  def newß
+  def new
     @person = Person.new
   end
 
   def create
-    @person = Person.new(person_params)
+  @person = Person.new(person_params)
     if @person.save
       render json: @person
     else
