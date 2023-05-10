@@ -74,11 +74,9 @@ Payload:
     {
     "address": {
         "street": "Rua Teste",
-        "number": 123,
         "city": "Cidade Teste",
         "state": "Estado Teste",
-        "country": "País Teste",
-        "zipcode": "12345-678",
+        "postalcode": "12345-678",
         "person_id": person.id
     }
 }
