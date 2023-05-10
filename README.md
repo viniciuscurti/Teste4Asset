@@ -22,7 +22,7 @@ bundle exec rspec spec/path/to/file_spec.rb
 
 # Rodar o servidor
 rails s
-````
+
 #Endpoints
 ##Person
 ###GET /people
@@ -33,7 +33,6 @@ Retorna as informações de uma pessoa específica.
 
 ###POST /people
 
-````json
 Cria uma nova pessoa. 
 
 "Payload":
@@ -46,10 +45,8 @@ Cria uma nova pessoa.
     "birthdate": "1990-01-01",
     }
 }
-````
 
 ###PUT /people/:id
-`````json
 Atualiza as informações de uma pessoa específica. 
 "Payload":
 
@@ -58,7 +55,6 @@ Atualiza as informações de uma pessoa específica.
     "name": "Novo Nome",
     }
 }
-`````
 
 ###DELETE /people/:id
 Deleta uma pessoa específica.
@@ -72,7 +68,6 @@ Retorna a lista de endereços cadastrados.
 Retorna as informações de um endereço específico.
 
 ###POST /addresses
-`````json
 Cria um novo endereço.
 Payload:
     
@@ -88,9 +83,9 @@ Payload:
     }
 }
         
-`````
 ###PUT /addresses/:id
 Atualiza as informações de um endereço específico
 
 ###DELETE /addresses/:id
 Deleta um endereço específico
+````
